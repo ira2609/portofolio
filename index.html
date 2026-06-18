@@ -1,11 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engel Basira - Portfolio</title>
+  <link rel="icon" type="image/png" href="componen/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <div class="bg-wrapper">
+    <video autoplay muted loop playsinline class="bg-video" id="bgVideo">
+      <source src="componen/background.mp4" type="video/mp4">
+    </video>
+    <img src="componen/background.png" alt="" class="bg-image" id="bgImage">
+    <div class="bg-overlay"></div>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo"><img src="componen/logo.png" alt="Engel Basira"></a>
+      <div class="nav-links" id="navLinks">
+        <div class="nav-indicator" id="navIndicator"></div>
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#profile" class="nav-link">Profile</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#achievements" class="nav-link">Achievements</a>
+        <a href="#certificates" class="nav-link">Certificates</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#github" class="nav-link">GitHub</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <div class="hero-photo-wrapper">
+          <div class="hero-photo-ring">
+            <img src="componen/foto.jpeg" alt="Engel Basira" class="hero-photo">
+          </div>
+          <div class="photo-ring-pulse"></div>
+        </div>
+        <div class="hero-text">
+          <p class="hero-greeting">HI, I'm</p>
+          <h1 class="hero-name">Engel Basira</h1>
+          <p class="hero-title">Software Developer</p>
+          <div class="hero-contact">
+            <a href="tel:+6287754738743" class="contact-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +62-877-5473-8743
+            </a>
+            <a href="mailto:engelbasira046@gmail.com" class="contact-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              engelbasira046@gmail.com
+            </a>
+            <span class="contact-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Masjid Nurul Yaqin, No. 15 South Jakarta Street
+            </span>
+          </div>
+          <div class="hero-socials">
+            <a href="https://github.com/ira2609" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/irajelly._" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://wa.me/6287754738743" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="profile" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Profile</h2>
+        <div class="profile-content reveal">
+          <p class="profile-text">
+            Siswa Program Keahlian Rekayasa Perangkat Lunak (RPL) di SMK Negeri 43 Jakarta yang memiliki minat dan kompetensi dalam pengembangan web serta desain digital. Menguasai dasar-dasar pemrograman dan pengembangan website, serta memiliki pengalaman organisasi yang membentuk kemampuan komunikasi, kerja sama tim, disiplin, dan tanggung jawab. Aktif mempelajari teknologi terbaru dan berkomitmen untuk terus mengembangkan keterampilan di bidang teknologi informasi. Siap menerapkan pengetahuan dan kemampuan yang dimiliki melalui program Praktik Kerja Lapangan (PKL) guna memperoleh pengalaman profesional di dunia industri.
+          </p>
+        </div>
+        <div class="stats-grid reveal">
+          <div class="stat-card">
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">+ Years Experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="projectCount">0</div>
+            <div class="stat-label">+ Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="100">0</div>
+            <div class="stat-label">% Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Skills</h2>
+        <div class="skills-grid reveal">
+          <div class="skill-category">
+            <h3 class="skill-category-title">Frontend</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">HTML</span>
+                  <span class="skill-percent">90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">CSS</span>
+                  <span class="skill-percent">89%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="89"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">JavaScript</span>
+                  <span class="skill-percent">80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Tailwind</span>
+                  <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="85"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3 class="skill-category-title">Other</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Git</span>
+                  <span class="skill-percent">80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">GitHub</span>
+                  <span class="skill-percent">80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">VS Code</span>
+                  <span class="skill-percent">80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="80"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Achievements</h2>
+        <div class="achievements-list reveal">
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 8 7 8 7"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 16 7 16 7"/><path d="M4 22h16"/><path d="M10 22V2h4v20"/></svg>
+            </div>
+            <div class="achievement-info">
+              <h3 class="achievement-title">Juara 1 Lomba Halang Rintang PMR tingkat Jabodetabek</h3>
+              <p class="achievement-desc">First place in obstacle course competition</p>
+            </div>
+          </div>
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="achievement-info">
+              <h3 class="achievement-title">Virtual Company Indonesia Business Plan Competition</h3>
+              <p class="achievement-desc">Participated in national business plan competition</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Certificates</h2>
+        <div class="certificates-grid reveal" id="certificatesGrid">
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Education</h2>
+        <div class="education-card reveal">
+          <div class="edu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="edu-info">
+            <h3 class="edu-school">SMK Negeri 43 Jakarta</h3>
+            <p class="edu-major">Software Engineering (RPL)</p>
+            <p class="edu-year">2024 – Present</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="github" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">GitHub</h2>
+        <div class="github-contributions reveal" id="githubContributions">
+          <div class="contrib-graph-img">
+            <img src="https://ghchart.rshah.org/2563eb/ira2609" alt="GitHub Contributions Graph">
+          </div>
+        </div>
+        <div class="github-projects reveal" id="githubProjects">
+          <h3 class="projects-title">Projects</h3>
+          <div class="project-search-wrapper">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" class="project-search" id="projectSearch" placeholder="Search projects...">
+          </div>
+          <div class="projects-grid" id="projectsGrid">
+          </div>
+          <button class="see-more-btn" id="seeMoreBtn">See More</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Engel Basira. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
