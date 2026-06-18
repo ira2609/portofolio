@@ -1,12 +1,118 @@
 document.addEventListener('DOMContentLoaded', () => {
   const GITHUB_USER = 'ira2609';
 
-  // --- Cursor Glow ---
-  const cursorGlow = document.getElementById('cursorGlow');
-  if (cursorGlow) {
+  // --- Custom Cursor ---
+  const customCursor = document.getElementById('customCursor');
+  const trails = [
+    document.getElementById('trail1'),
+    document.getElementById('trail2'),
+    document.getElementById('trail3'),
+    document.getElementById('trail4'),
+    document.getElementById('trail5')
+  ].filter(Boolean);
+
+  if (customCursor) {
+    let lastX = 0, lastY = 0, currentAngle = 0, targetAngle = 0;
+    let rafId = null;
+    let cx = 0, cy = 0;
+    let tx = [0, 0, 0, 0, 0], ty = [0, 0, 0, 0, 0];
+    let lastMoveTime = performance.now();
+    let isIdle = false;
+    let orbitAngle = 0;
+    const IDLE_THRESHOLD = 300;
+
+    const orbits = [
+      { radius: 20, speed: 0.025, phase: 0 },
+      { radius: 32, speed: -0.018, phase: 1.3 },
+      { radius: 44, speed: 0.015, phase: 2.6 },
+      { radius: 28, speed: -0.022, phase: 3.9 },
+      { radius: 38, speed: 0.02, phase: 5.2 }
+    ];
+
+    customCursor.style.display = 'block';
+
     document.addEventListener('mousemove', (e) => {
-      cursorGlow.style.left = e.clientX + 'px';
-      cursorGlow.style.top = e.clientY + 'px';
+      const deltaX = e.clientX - lastX;
+      const deltaY = e.clientY - lastY;
+
+      if (Math.abs(deltaX) > 2 || Math.abs(deltaY) > 2) {
+        targetAngle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+      }
+
+      cx = e.clientX;
+      cy = e.clientY;
+      customCursor.style.left = cx + 'px';
+      customCursor.style.top = cy + 'px';
+      lastX = cx;
+      lastY = cy;
+      lastMoveTime = performance.now();
+      if (isIdle) {
+        isIdle = false;
+        trails.forEach((t, i) => {
+          if (!t) return;
+          tx[i] = cx;
+          ty[i] = cy;
+        });
+      }
+      if (!rafId) rafId = requestAnimationFrame(tick);
+    });
+
+    function tick() {
+      if (isIdle) {
+        const idleDiff = (0 - currentAngle);
+        const shortest = ((idleDiff % 360) + 540) % 360 - 180;
+        currentAngle += shortest * 0.05;
+        customCursor.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
+
+        orbitAngle += 0.016;
+        trails.forEach((t, i) => {
+          if (!t) return;
+          const o = orbits[i];
+          const a = orbitAngle * o.speed + o.phase;
+          tx[i] = cx + Math.cos(a) * o.radius;
+          ty[i] = cy + Math.sin(a) * o.radius;
+          t.style.left = tx[i] + 'px';
+          t.style.top = ty[i] + 'px';
+        });
+      } else {
+        let diff = targetAngle - currentAngle;
+        diff = ((diff % 360) + 540) % 360 - 180;
+        currentAngle += diff * 0.1;
+        customCursor.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
+
+        trails.forEach((t, i) => {
+          if (!t) return;
+          const targetX = i === 0 ? cx : tx[i - 1];
+          const targetY = i === 0 ? cy : ty[i - 1];
+          tx[i] += (targetX - tx[i]) * 0.12;
+          ty[i] += (targetY - ty[i]) * 0.12;
+          t.style.left = tx[i] + 'px';
+          t.style.top = ty[i] + 'px';
+        });
+      }
+
+      if (!isIdle && performance.now() - lastMoveTime > IDLE_THRESHOLD) {
+        isIdle = true;
+        orbitAngle = 0;
+      }
+
+      rafId = requestAnimationFrame(tick);
+    }
+
+    document.addEventListener('mouseleave', () => {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      customCursor.style.display = 'none';
+      trails.forEach(t => { if (t) t.style.display = 'none'; });
+    });
+
+    document.addEventListener('mouseenter', () => {
+      customCursor.style.display = 'block';
+      trails.forEach((t, i) => {
+        if (!t) return;
+        t.style.display = 'block';
+        tx[i] = cx;
+        ty[i] = cy;
+      });
     });
   }
 
@@ -266,7 +372,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!grid) return;
 
     const certFiles = [
-      { file: 'setifikat (2).png', title: 'Certificate' }
+      { file: 'sertifikat.jpeg', title: '1st Place — PMR Obstacle Course Competition, Jabodetabek Level' },
+      { file: 'setifikat (2).png', title: 'Certificate of Participation — Virtual Company Indonesia Business Plan Competition 2025/2026' }
     ];
 
     certFiles.forEach(cert => {
@@ -280,6 +387,16 @@ document.addEventListener('DOMContentLoaded', () => {
           <img src="${path}" alt="${cert.title}" loading="lazy">
           <div class="cert-title">${cert.title}</div>
         `;
+
+        card.addEventListener('click', () => {
+          const lightbox = document.getElementById('lightbox');
+          const lightboxImg = document.getElementById('lightboxImg');
+          if (lightbox && lightboxImg) {
+            lightboxImg.src = path;
+            lightboxImg.alt = cert.title;
+            lightbox.classList.add('open');
+          }
+        });
       };
       img.onerror = () => {
         card.innerHTML = `
@@ -292,6 +409,18 @@ document.addEventListener('DOMContentLoaded', () => {
       img.src = path;
       grid.appendChild(card);
     });
+
+    const lightbox = document.getElementById('lightbox');
+    const closeBtn = document.getElementById('lightboxClose');
+    if (lightbox && closeBtn) {
+      closeBtn.addEventListener('click', () => lightbox.classList.remove('open'));
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('open');
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') lightbox.classList.remove('open');
+      });
+    }
   }
   loadCertificates();
 });

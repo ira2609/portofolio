@@ -1,4 +1,4 @@
-foto makai yang ada di foto.jpeg dengan lingkaran sebagai bingkai
+Use the photo from foto.jpeg with a circular frame
 
 HI, I'm
 Engel Basira
@@ -10,38 +10,38 @@ github : https://github.com/ira2609
 instagram : https://www.instagram.com/irajelly._?igsh=c3duN3dkbzN4czhq
 whatsapp : https://wa.me/6287754738743
 
-Profile : Siswa Program Keahlian Rekayasa Perangkat Lunak (RPL) di SMK Negeri 43 Jakarta yang memiliki minat dan kompetensi dalam pengembangan web serta desain digital. Menguasai dasar-dasar pemrograman dan pengembangan website, serta memiliki pengalaman organisasi yang membentuk kemampuan komunikasi, kerja sama tim, disiplin, dan tanggung jawab. Aktif mempelajari teknologi terbaru dan berkomitmen untuk terus mengembangkan keterampilan di bidang teknologi informasi. Siap menerapkan pengetahuan dan kemampuan yang dimiliki melalui program Praktik Kerja Lapangan (PKL) guna memperoleh pengalaman profesional di dunia industri.
+Profile : A student in the Software Engineering program at State Vocational High School 43 Jakarta with a strong interest and competence in web development and digital design. Proficient in programming fundamentals and website development, with organizational experience that has built communication, teamwork, discipline, and responsibility skills. Actively learning the latest technologies and committed to continuously developing skills in the field of information technology. Ready to apply acquired knowledge and abilities through the Field Work Practice program to gain professional experience in the industry.
 
 3+ Years Experience
-(jumlahnya mengikuti yang ada project di github)+ Projects
+(Count follows number of projects on GitHub)+ Projects
 100% Satisfaction
 
 Achievements :
-1. Juara 1 Lomba Halang Rintang PMR tingkat Jabodetabek
+1. 1st Place — PMR Obstacle Course Competition, Jabodetabek Level
 2. Virtual Company Indonesia Business Plan Competition
 
 skill :
 frontend : html 90%, css 89%, javascript 80%, tailwind 85%
 other : git 80%, github 80%, vscode 80%
 
-sertificate :
-(ambil  dari file sertifikat menampilkan foto dan judul)
+certificate :
+(take from the certificate file, display photo and title)
 
 Education :
-SMK Negeri 43 Jakarta
-Software Engineering (RPL) — 2024 – Present
+State Vocational High School 43 Jakarta
+Software Engineering — 2024 – Present
 
 GitHub
-buatkan agar menampilkan 12 contributions in the last year dengan format seperti kontribusi di github aslinya
-dan di bawahnya menampilkan hasil project2 nya dari github
+Display 12 contributions in the last year with a format similar to actual GitHub contributions
+and below it show the projects from github
 
-gunakan backgrooun untuk dekstop dan ipad make backgroundvideo.mp4 dan untuk android make background.png di folder componen
+Use background video for desktop and iPad (backgroundvideo.mp4) and background.png for Android from the componen folder
 
-lalu ganti pointer nya jadi dengan yang ada di pointer.png
+Change the cursor pointer to use the one in pointer.png
 
-warna utama navy gitu tapi semi transparant (buat gradasi nya)
-padukan dengan warna biru tua seperti di logo nya gituh (buat gradasi nya juga) 
+Main color: navy with semi-transparent (create a gradient)
+Combine with dark blue like in the logo (also create a gradient)
 
-gunakan animasi scrool smooth dan ketia scroll kay ada animasinya gitu
+Use smooth scroll animation and add animations when scrolling
 
-pakai smooth ui dan efek blur di setiap card dan transparant gitu tapi jangan transparan banget
+Use smooth UI and blur effect on every card with transparency, but not too transparent
